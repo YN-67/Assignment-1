@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>搭配词整合比较 — 《老残游记》中的 老残</title>
+<style>
+  :root { --bg:#faf9f6; --card:#fff; --ink:#2b2b2b; --muted:#6b6b6b;
+    --accent:#8b2f2f; --soft:#f3e3e3; --line:#e5e1d8; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:2rem 1rem 4rem; background:var(--bg); color:var(--ink);
+    font-family:"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif; line-height:1.5; }
+  main { max-width:960px; margin:0 auto; }
+  header { text-align:center; margin-bottom:2rem; }
+  h1 { font-size:1.7rem; margin:0 0 .3rem; }
+  h1 .t { color:var(--accent); }
+  .sub { color:var(--muted); font-size:.92rem; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; margin-bottom:2rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem; text-align:center; }
+  .card .num { font-size:1.5rem; font-weight:700; color:var(--accent); }
+  .card .lbl { font-size:.78rem; color:var(--muted); }
+  section { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1.4rem; margin-bottom:2rem; }
+  h2 { font-size:1.1rem; margin:0 0 1rem; border-bottom:2px solid var(--soft); padding-bottom:.35rem; }
+  .controls { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1rem; }
+  input[type="search"] { flex:1; min-width:200px; padding:.5rem .8rem; border:1px solid var(--line); border-radius:8px; font-size:.95rem; }
+  .btn { padding:.45rem .9rem; border:1px solid var(--line); border-radius:8px; background:#fff; cursor:pointer; font-size:.85rem; }
+  .btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; }
+  th, td { padding:.45rem .6rem; border-bottom:1px solid var(--line); text-align:left; }
+  th { background:var(--soft); cursor:pointer; user-select:none; position:sticky; top:0; }
+  td.num { font-variant-numeric:tabular-nums; }
+  .ratio { color:var(--muted); font-size:.78rem; }
+  .miss { color:#ccc; }
+  .in-±5 { background:#fdf6f6; }
+  .in-±10 { background:#f6f9fd; }
+  .in-句 { background:#f6fdf6; }
+  tr:hover td { background:#fbf3f3 !important; }
+  .note { color:var(--muted); font-size:.8rem; margin-top:.8rem; }
+  footer { text-align:center; color:var(--muted); font-size:.8rem; margin-top:2rem; }
+  footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>搭配词整合比较：<span class="t">老残</span> ·《老残游记》</h1>
+    <div class="sub">三种设定并排比较 · Fisher 精确检验 p &lt; 0.05 · 括号内为 obs/exp 本地比值</div>
+  </header>
+
+  <div class="cards">
+    <div class="card"><div class="num">451</div><div class="lbl">去重后搭配词总数</div></div>
+    <div class="card"><div class="num">42</div><div class="lbl">三设定共有（核心）</div></div>
+    <div class="card"><div class="num">60</div><div class="lbl">两设定共有</div></div>
+    <div class="card"><div class="num">349</div><div class="lbl">仅单一设定</div></div>
+  </div>
+
+  <section>
+    <h2>整合搭配词表</h2>
+    <div class="controls">
+      <input type="search" id="q" placeholder="搜索搭配词…" oninput="apply()">
+      <button class="btn active" data-f="0" onclick="setF(0,this)">全部</button>
+      <button class="btn" data-f="3" onclick="setF(3,this)">三设定共有</button>
+      <button class="btn" data-f="2" onclick="setF(2,this)">两设定共有</button>
+      <button class="btn" data-f="1" onclick="setF(1,this)">仅单一设定</button>
+    </div>
+    <table id="tb">
+      <thead><tr>
+        <th data-k="w">搭配词</th>
+        <th data-k="0">Window ±5（obs · 比值）</th>
+        <th data-k="1">Window ±10（obs · 比值）</th>
+        <th data-k="2">Sentence（obs · 比值）</th>
+      </tr></thead>
+      <tbody>
+<tr data-n="3"><td>人瑞</td><td class="num in-±5">26 <span class="ratio">(2.9×)</span></td><td class="num in-±10">33 <span class="ratio">(2.3×)</span></td><td class="num in-句">37 <span class="ratio">(2.0×)</span></td></tr>
+<tr data-n="3"><td>说道</td><td class="num in-±5">10 <span class="ratio">(2.2×)</span></td><td class="num in-±10">14 <span class="ratio">(1.9×)</span></td><td class="num in-句">17 <span class="ratio">(1.8×)</span></td></tr>
+<tr data-n="3"><td>坐下</td><td class="num in-±5">6 <span class="ratio">(4.1×)</span></td><td class="num in-±10">9 <span class="ratio">(3.8×)</span></td><td class="num in-句">13 <span class="ratio">(4.2×)</span></td></tr>
+<tr data-n="3"><td>行李</td><td class="num in-±5">7 <span class="ratio">(4.4×)</span></td><td class="num in-±10">9 <span class="ratio">(3.5×)</span></td><td class="num in-句">11 <span class="ratio">(3.4×)</span></td></tr>
+<tr data-n="2"><td>只好</td><td class="num miss">—</td><td class="num in-±10">7 <span class="ratio">(2.8×)</span></td><td class="num in-句">10 <span class="ratio">(3.1×)</span></td></tr>
+<tr data-n="1"><td>翠环</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">10 <span class="ratio">(2.0×)</span></td></tr>
+<tr data-n="3"><td>一看</td><td class="num in-±5">10 <span class="ratio">(8.2×)</span></td><td class="num in-±10">10 <span class="ratio">(5.2×)</span></td><td class="num in-句">10 <span class="ratio">(3.9×)</span></td></tr>
+<tr data-n="1"><td>掌柜的</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">9 <span class="ratio">(2.9×)</span></td></tr>
+<tr data-n="3"><td>心里</td><td class="num in-±5">7 <span class="ratio">(3.8×)</span></td><td class="num in-±10">8 <span class="ratio">(2.8×)</span></td><td class="num in-句">9 <span class="ratio">(2.4×)</span></td></tr>
+<tr data-n="3"><td>次日</td><td class="num in-±5">9 <span class="ratio">(7.6×)</span></td><td class="num in-±10">9 <span class="ratio">(4.8×)</span></td><td class="num in-句">9 <span class="ratio">(3.6×)</span></td></tr>
+<tr data-n="1"><td>一面</td><td class="num miss">—</td><td class="num in-±10">9 <span class="ratio">(2.8×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>原来</td><td class="num in-±5">5 <span class="ratio">(2.6×)</span></td><td class="num miss">—</td><td class="num in-句">8 <span class="ratio">(2.0×)</span></td></tr>
+<tr data-n="2"><td>店里</td><td class="num miss">—</td><td class="num in-±10">7 <span class="ratio">(2.2×)</span></td><td class="num in-句">8 <span class="ratio">(2.0×)</span></td></tr>
+<tr data-n="3"><td>问道</td><td class="num in-±5">5 <span class="ratio">(3.9×)</span></td><td class="num in-±10">8 <span class="ratio">(4.0×)</span></td><td class="num in-句">8 <span class="ratio">(3.0×)</span></td></tr>
+<tr data-n="3"><td>却说</td><td class="num in-±5">7 <span class="ratio">(10.3×)</span></td><td class="num in-±10">7 <span class="ratio">(6.5×)</span></td><td class="num in-句">7 <span class="ratio">(5.0×)</span></td></tr>
+<tr data-n="1"><td>房里</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">7 <span class="ratio">(2.8×)</span></td></tr>
+<tr data-n="3"><td>申东造</td><td class="num in-±5">3 <span class="ratio">(6.4×)</span></td><td class="num in-±10">7 <span class="ratio">(9.5×)</span></td><td class="num in-句">7 <span class="ratio">(7.2×)</span></td></tr>
+<tr data-n="1"><td>翠花</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">7 <span class="ratio">(2.2×)</span></td></tr>
+<tr data-n="1"><td>东造</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">7 <span class="ratio">(2.3×)</span></td></tr>
+<tr data-n="3"><td>门口</td><td class="num in-±5">4 <span class="ratio">(4.3×)</span></td><td class="num in-±10">5 <span class="ratio">(3.4×)</span></td><td class="num in-句">7 <span class="ratio">(3.6×)</span></td></tr>
+<tr data-n="3"><td>告诉</td><td class="num in-±5">4 <span class="ratio">(3.0×)</span></td><td class="num in-±10">7 <span class="ratio">(3.3×)</span></td><td class="num in-句">7 <span class="ratio">(2.5×)</span></td></tr>
+<tr data-n="2"><td>店家</td><td class="num miss">—</td><td class="num in-±10">5 <span class="ratio">(3.7×)</span></td><td class="num in-句">7 <span class="ratio">(4.0×)</span></td></tr>
+<tr data-n="1"><td>起来</td><td class="num in-±5">6 <span class="ratio">(2.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>差人</td><td class="num miss">—</td><td class="num in-±10">5 <span class="ratio">(2.6×)</span></td><td class="num in-句">6 <span class="ratio">(2.4×)</span></td></tr>
+<tr data-n="3"><td>连忙</td><td class="num in-±5">4 <span class="ratio">(3.9×)</span></td><td class="num in-±10">6 <span class="ratio">(3.7×)</span></td><td class="num in-句">6 <span class="ratio">(2.8×)</span></td></tr>
+<tr data-n="3"><td>江南</td><td class="num in-±5">3 <span class="ratio">(5.5×)</span></td><td class="num in-±10">5 <span class="ratio">(5.7×)</span></td><td class="num in-句">6 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>看见</td><td class="num in-±5">5 <span class="ratio">(3.0×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="3"><td>上首</td><td class="num in-±5">4 <span class="ratio">(9.5×)</span></td><td class="num in-±10">4 <span class="ratio">(6.0×)</span></td><td class="num in-句">5 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>一遍</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">5 <span class="ratio">(3.1×)</span></td></tr>
+<tr data-n="3"><td>慌忙</td><td class="num in-±5">4 <span class="ratio">(5.3×)</span></td><td class="num in-±10">4 <span class="ratio">(3.3×)</span></td><td class="num in-句">5 <span class="ratio">(3.1×)</span></td></tr>
+<tr data-n="1"><td>不用</td><td class="num miss">—</td><td class="num in-±10">5 <span class="ratio">(3.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="3"><td>二字</td><td class="num in-±5">3 <span class="ratio">(4.4×)</span></td><td class="num in-±10">4 <span class="ratio">(3.7×)</span></td><td class="num in-句">5 <span class="ratio">(3.8×)</span></td></tr>
+<tr data-n="2"><td>答应</td><td class="num in-±5">4 <span class="ratio">(3.8×)</span></td><td class="num in-±10">5 <span class="ratio">(3.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>县里</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">5 <span class="ratio">(2.5×)</span></td></tr>
+<tr data-n="2"><td>不必</td><td class="num in-±5">5 <span class="ratio">(4.9×)</span></td><td class="num in-±10">5 <span class="ratio">(3.1×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="3"><td>想道</td><td class="num in-±5">3 <span class="ratio">(7.9×)</span></td><td class="num in-±10">4 <span class="ratio">(6.6×)</span></td><td class="num in-句">5 <span class="ratio">(6.3×)</span></td></tr>
+<tr data-n="2"><td>省城</td><td class="num miss">—</td><td class="num in-±10">4 <span class="ratio">(5.4×)</span></td><td class="num in-句">5 <span class="ratio">(5.1×)</span></td></tr>
+<tr data-n="3"><td>点点头</td><td class="num in-±5">4 <span class="ratio">(6.8×)</span></td><td class="num in-±10">4 <span class="ratio">(4.3×)</span></td><td class="num in-句">4 <span class="ratio">(3.2×)</span></td></tr>
+<tr data-n="3"><td>诧异</td><td class="num in-±5">3 <span class="ratio">(6.4×)</span></td><td class="num in-±10">3 <span class="ratio">(4.1×)</span></td><td class="num in-句">4 <span class="ratio">(4.1×)</span></td></tr>
+<tr data-n="3"><td>认得</td><td class="num in-±5">3 <span class="ratio">(4.4×)</span></td><td class="num in-±10">4 <span class="ratio">(3.7×)</span></td><td class="num in-句">4 <span class="ratio">(2.8×)</span></td></tr>
+<tr data-n="1"><td>屋子</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">4 <span class="ratio">(3.5×)</span></td></tr>
+<tr data-n="1"><td>袍子</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">4 <span class="ratio">(4.1×)</span></td></tr>
+<tr data-n="2"><td>房门</td><td class="num miss">—</td><td class="num in-±10">4 <span class="ratio">(5.0×)</span></td><td class="num in-句">4 <span class="ratio">(3.8×)</span></td></tr>
+<tr data-n="1"><td>正在</td><td class="num in-±5">4 <span class="ratio">(3.1×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="3"><td>前日</td><td class="num in-±5">3 <span class="ratio">(5.9×)</span></td><td class="num in-±10">4 <span class="ratio">(5.0×)</span></td><td class="num in-句">4 <span class="ratio">(3.8×)</span></td></tr>
+<tr data-n="2"><td>坐在</td><td class="num miss">—</td><td class="num in-±10">4 <span class="ratio">(3.7×)</span></td><td class="num in-句">4 <span class="ratio">(2.8×)</span></td></tr>
+<tr data-n="2"><td>两家</td><td class="num miss">—</td><td class="num in-±10">3 <span class="ratio">(5.0×)</span></td><td class="num in-句">4 <span class="ratio">(5.0×)</span></td></tr>
+<tr data-n="2"><td>大叫</td><td class="num miss">—</td><td class="num in-±10">3 <span class="ratio">(4.5×)</span></td><td class="num in-句">4 <span class="ratio">(4.5×)</span></td></tr>
+<tr data-n="1"><td>辛苦</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">3 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="3"><td>三百</td><td class="num in-±5">2 <span class="ratio">(5.9×)</span></td><td class="num in-±10">3 <span class="ratio">(5.6×)</span></td><td class="num in-句">3 <span class="ratio">(4.2×)</span></td></tr>
+<tr data-n="2"><td>费心</td><td class="num miss">—</td><td class="num in-±10">3 <span class="ratio">(6.4×)</span></td><td class="num in-句">3 <span class="ratio">(4.9×)</span></td></tr>
+<tr data-n="2"><td>小小</td><td class="num miss">—</td><td class="num in-±10">3 <span class="ratio">(5.6×)</span></td><td class="num in-句">3 <span class="ratio">(4.2×)</span></td></tr>
+<tr data-n="3"><td>拱手</td><td class="num in-±5">2 <span class="ratio">(7.9×)</span></td><td class="num in-±10">3 <span class="ratio">(7.5×)</span></td><td class="num in-句">3 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>治病</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">3 <span class="ratio">(8.5×)</span></td></tr>
+<tr data-n="2"><td>下首</td><td class="num miss">—</td><td class="num in-±10">3 <span class="ratio">(11.2×)</span></td><td class="num in-句">3 <span class="ratio">(8.5×)</span></td></tr>
+<tr data-n="3"><td>所说</td><td class="num in-±5">3 <span class="ratio">(7.9×)</span></td><td class="num in-±10">3 <span class="ratio">(5.0×)</span></td><td class="num in-句">3 <span class="ratio">(3.8×)</span></td></tr>
+<tr data-n="2"><td>店小二</td><td class="num in-±5">2 <span class="ratio">(6.8×)</span></td><td class="num miss">—</td><td class="num in-句">3 <span class="ratio">(4.9×)</span></td></tr>
+<tr data-n="3"><td>东昌府</td><td class="num in-±5">3 <span class="ratio">(10.1×)</span></td><td class="num in-±10">3 <span class="ratio">(6.4×)</span></td><td class="num in-句">3 <span class="ratio">(4.9×)</span></td></tr>
+<tr data-n="2"><td>收尸</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">3 <span class="ratio">(8.5×)</span></td></tr>
+<tr data-n="2"><td>狐裘</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">3 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>进省</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">3 <span class="ratio">(4.9×)</span></td></tr>
+<tr data-n="3"><td>望外</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">3 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="3"><td>无法</td><td class="num in-±5">2 <span class="ratio">(11.8×)</span></td><td class="num in-±10">3 <span class="ratio">(11.2×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>手里</td><td class="num in-±5">3 <span class="ratio">(4.4×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="3"><td>想起</td><td class="num in-±5">2 <span class="ratio">(6.8×)</span></td><td class="num in-±10">3 <span class="ratio">(6.4×)</span></td><td class="num in-句">3 <span class="ratio">(4.9×)</span></td></tr>
+<tr data-n="1"><td>这话</td><td class="num in-±5">3 <span class="ratio">(3.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>赶忙</td><td class="num miss">—</td><td class="num in-±10">3 <span class="ratio">(3.7×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>环翠</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">3 <span class="ratio">(4.9×)</span></td></tr>
+<tr data-n="2"><td>颜色</td><td class="num miss">—</td><td class="num in-±10">3 <span class="ratio">(6.4×)</span></td><td class="num in-句">3 <span class="ratio">(4.9×)</span></td></tr>
+<tr data-n="3"><td>笔来</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">3 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>回寓</td><td class="num miss">—</td><td class="num in-±10">3 <span class="ratio">(9.0×)</span></td><td class="num in-句">3 <span class="ratio">(6.8×)</span></td></tr>
+<tr data-n="1"><td>叹息</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="3"><td>递到</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>老家</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>夫妇</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>住手</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>四百</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>收检</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>此事</td><td class="num in-±5">2 <span class="ratio">(6.8×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>这桌</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>西面</td><td class="num in-±5">2 <span class="ratio">(5.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>穿著</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>书院</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>一辆</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>世道</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>贵处</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>正东</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>奉上</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>河堤</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>西南</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>海水</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>一扯</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>省去</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>闲话</td><td class="num in-±5">2 <span class="ratio">(6.8×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>下午</td><td class="num in-±5">2 <span class="ratio">(6.8×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>酷吏</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>复行</td><td class="num in-±5">2 <span class="ratio">(7.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>徐州</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="3"><td>瑞拉</td><td class="num in-±5">2 <span class="ratio">(23.6×)</span></td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>劳驾</td><td class="num in-±5">2 <span class="ratio">(11.8×)</span></td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>玉贤</td><td class="num in-±5">2 <span class="ratio">(7.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>上车</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="3"><td>那年</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="3"><td>谢谢</td><td class="num in-±5">2 <span class="ratio">(11.8×)</span></td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>钥匙</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>听到</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>羊皮</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="3"><td>著翠环</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>二十年</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>摇个</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>法则</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>迷迷</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="3"><td>炕沿</td><td class="num in-±5">2 <span class="ratio">(11.8×)</span></td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="3"><td>洗完</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>政绩</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>本店</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>老先生</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>点头</td><td class="num in-±5">2 <span class="ratio">(5.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>奔走</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>惊天动地</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>明间</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>赞成</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>想个</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>板书</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>对著</td><td class="num in-±5">2 <span class="ratio">(7.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>一想</td><td class="num in-±5">2 <span class="ratio">(6.8×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="3"><td>关照</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>联络</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>为难</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>贵上</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>那日</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>半边</td><td class="num in-±5">2 <span class="ratio">(5.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>二两</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>请客</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>鼓书</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>锁上</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>感激</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>胡举</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>下船</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>大户</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>请厅</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>茶房</td><td class="num in-±5">2 <span class="ratio">(6.8×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>投到</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>抚摩</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="3"><td>说起</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>急忙</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="3"><td>幸而</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>过此</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>揭起</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>一千两</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>讲明</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>湾子</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>金泉</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>恰好</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>黑烟</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>用手</td><td class="num in-±5">2 <span class="ratio">(5.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>男人</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>随著</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>顺便</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>一日</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>步行</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>至友</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>写著</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>提起</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>箱子</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>棉袍子</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>恭恭敬敬</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>河面</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>当晚</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>布政司</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>破书</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>德慧生</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>写信</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>盘桓</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>两手</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>步到</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="1"><td>身边</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="2"><td>寓中</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="3"><td>坐定</td><td class="num in-±5">2 <span class="ratio">(15.8×)</span></td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>小惠</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>用布</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(14.9×)</span></td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>懂得</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>天风</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="2"><td>名字</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="2"><td>走过</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>信来</td><td class="num in-±5">2 <span class="ratio">(7.9×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>淘气</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(7.5×)</span></td></tr>
+<tr data-n="1"><td>连声</td><td class="num in-±5">2 <span class="ratio">(6.8×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>孤栖</td><td class="num miss">—</td><td class="num in-±10">2 <span class="ratio">(10.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="3"><td>作揖</td><td class="num in-±5">2 <span class="ratio">(11.8×)</span></td><td class="num in-±10">2 <span class="ratio">(7.5×)</span></td><td class="num in-句">2 <span class="ratio">(5.7×)</span></td></tr>
+<tr data-n="1"><td>过年</td><td class="num miss">—</td><td class="num miss">—</td><td class="num in-句">2 <span class="ratio">(11.3×)</span></td></tr>
+<tr data-n="2"><td>铁爷</td><td class="num in-±5">2 <span class="ratio">(9.5×)</span></td><td class="num in-±10">2 <span class="ratio">(6.0×)</span></td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>坐长</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>辞去</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>进县</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>路来</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>本想</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>坐人</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>寄居</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>略道</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>紧靠</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>打恭</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>雅惠</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>走法</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>能移</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>唐僧</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>单看</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>谨作</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>同绍</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>认不得</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>因多</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>可守</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>从鹊华桥</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>始回</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>定神一看</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>两人本</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>暖帘</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>慧哥</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>著窗</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>原路</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>不由分说</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>叫车</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>佳景</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>袋里</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>各事</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>故意</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>睁开眼睛</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>过谢</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>已来</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>过爱</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>街头</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>一寸</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>书理</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>揭帘</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>二翠摸</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>别信</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>问到</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>就势</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>数次</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>色味</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>恭敬</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>那就好</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>这可真</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>送信人</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>姓金</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>怒容满面</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>诊过</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>从抚署</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>方欲</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>均照</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>大失所望</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>环翠正</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>温汤</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>办毕</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>回房</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>领悟</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>题个</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>雅爱</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>布给</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>劳顿</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>天大</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>自用</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>挪到</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>怒气</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>不兴</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>正为荐</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>肿得</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>回写</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>上冲</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>随身</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>著雪</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>有劲</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>答说</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>访柳</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>寒温</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>伯问</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>我省</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>兰花</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>辞让</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>贵如</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>惜乎</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>色如</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>决意</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>上刑</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>肯坐</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>唤道</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>虽不贵</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>四目</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>难不成</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>各送</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>拔救翠</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>三千</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>一百八十</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>探听</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>进屋</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>甚俗</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>沉数</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>来告</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>这土</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>问翠花</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>本该</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>四书五经</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>举箸</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>搀过</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>安慰</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>环拉起</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>这信交</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>正忙</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>旱路</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>较量</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>叙过</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>臂膊</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>信是</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>殷进</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>便拉著</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>地去</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>太好了</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>生兄</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>有山</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>此计</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>觉冷</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>人行道</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>回书</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>茫然不知</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>爱才若渴</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>洞离</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>顺著</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>先人</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>太俗</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>玉贤正</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>乳香</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>你题</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>想不到</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>下流</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>因翠环</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>这线</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>方将</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>还用</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>多谢</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>遗留下来</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>谨同</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>书述</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>照样写</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>倾出</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>当不起</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>看症</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>留给</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>老成持重</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>祖业</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>交辉</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>静听</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>高公让</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>好意</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>一理</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>请留</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>长策</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>环之法</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>省中传</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>是子</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>药方子</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>文德二公</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>所赠</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>有酒</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>时刻</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>沾墨</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>正属</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>敦嘱</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>骡车</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>先布</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>游客</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>铲出</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>无暇</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>这香治</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>明去</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>嘱咐</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>同吃</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>取笔</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>访个</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>搀起</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>白公之托</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>沿著</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>擘画</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>完茶</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>向庄</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>知贾家</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>枝笔</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>已进</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>吆喝</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>有点像</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>下游</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>结论</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>书去</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>有负</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>救民</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>马扎</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>两行</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>差许</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>送翠花进</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>拍著</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>承情</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>德慧</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>十分高兴</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>府上</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>我救</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>报君</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>七搭八搭</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>冤不冤</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>知子</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>我姓</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>捉拿</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>说些</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>提议</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>黄兄</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>我情</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>几杯</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>恍然</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>逼成</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>忘事</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>真会乱</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>用于</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>席间</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>看人</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>医生</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>王二先取</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>替子</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>二座</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>有口皆碑</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>易者</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>同乡</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>俱笑</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>亲信</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>书信</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>知难</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>发药</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>无济于</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>两帖</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>同高绍</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>幸得</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>溜回</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>铁锁</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>便题</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>殷出</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>没头没脑</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>评论</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>大户人家</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>往南</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>江右</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>教环翠</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>将个</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>有水</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+<tr data-n="1"><td>携同</td><td class="num in-±5">1 <span class="ratio">(23.6×)</span></td><td class="num miss">—</td><td class="num miss">—</td></tr>
+      </tbody>
+    </table>
+    <div class="note">— 表示该设定下不显著（p ≥ 0.05 或词被过滤）。底色区分设定列。点击表头排序。</div>
+  </section>
+
+  <footer>
+    相关页面：<a href="../index.html">总览</a> ·
+    <a href="../collocates_老残.html">±5 报告</a> ·
+    <a href="../collocates_老残_h10.html">±10 报告</a> ·
+    <a href="../collocates_老残_sentence.html">Sentence 报告</a><br>
+    生成于 2026-09-26 · jieba + qhchina · 《老残游记》（刘鹗）
+  </footer>
+</main>
+<script>
+let filterN = 0;
+function setF(n, btn) {
+  filterN = n;
+  document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  apply();
+}
+function apply() {
+  const q = document.getElementById('q').value.trim();
+  document.querySelectorAll('#tb tbody tr').forEach(tr => {
+    const okQ = !q || tr.children[0].textContent.includes(q);
+    const okF = filterN === 0 || +tr.dataset.n === filterN;
+    tr.style.display = okQ && okF ? '' : 'none';
+  });
+}
+document.querySelectorAll('#tb th').forEach((th, i) => {
+  th.addEventListener('click', () => {
+    const tb = document.querySelector('#tb tbody');
+    const rows = [...tb.querySelectorAll('tr')];
+    const numeric = i > 0;
+    rows.sort((a, b) => {
+      const va = a.children[i].textContent, vb = b.children[i].textContent;
+      if (numeric) {
+        const na = va.trim() === '—' ? -1 : parseFloat(va);
+        const nb = vb.trim() === '—' ? -1 : parseFloat(vb);
+        return nb - na;
+      }
+      return va.localeCompare(vb, 'zh');
+    });
+    rows.forEach(r => tb.appendChild(r));
+  });
+});
+</script>
+</body>
+</html>
