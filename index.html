@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《老残游记》搭配词分析 — Collocation Analysis</title>
+<style>
+  :root {
+    --bg: #faf9f6; --card: #ffffff; --ink: #2b2b2b; --muted: #6b6b6b;
+    --accent: #8b2f2f; --accent-soft: #f3e3e3; --line: #e5e1d8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2rem 1rem 4rem; background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif; line-height: 1.6;
+  }
+  main { max-width: 860px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 2.5rem; }
+  h1 { font-size: 1.8rem; margin: 0 0 .4rem; }
+  h1 .target { color: var(--accent); }
+  .subtitle { color: var(--muted); font-size: .95rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 1.4rem; text-decoration: none; color: var(--ink); display: block;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(139,47,47,.12); }
+  .card h2 { margin: 0 0 .4rem; font-size: 1.1rem; color: var(--accent); }
+  .card .num { font-size: 1.9rem; font-weight: 700; }
+  .card p { margin: .4rem 0 0; color: var(--muted); font-size: .88rem; }
+  .note { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 2.5rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Collocates of <span class="target">老残</span> in 《老残游记》</h1>
+    <div class="subtitle">刘鹗《老残游记》搭配词分析 · jieba 分词 · qhchina find_collocates · Fisher 精确检验 p &lt; 0.05</div>
+  </header>
+
+  <div class="cards">
+    <a class="card" href="collocates_老残.html">
+      <h2>Window ±5 词</h2>
+      <div class="num">337</div>
+      <p>显著共现词 · 目标词左右各 5 词范围内共现</p>
+    </a>
+    <a class="card" href="collocates_老残_h10.html">
+      <h2>Window ±10 词</h2>
+      <div class="num">115</div>
+      <p>显著共现词 · 目标词左右各 10 词范围内共现</p>
+    </a>
+    <a class="card" href="collocates_老残_sentence.html">
+      <h2>Sentence 方法</h2>
+      <div class="num">143</div>
+      <p>显著共现词 · 以同一句为共现单位</p>
+    </a>
+  </div>
+
+  <div class="note">
+    过滤设置：剔除标点符号 · zh_sim 停用词（806 个）· 最短词长 2<br>
+    数据源：novel.txt（简体版全文，126,937 字）· 分析工具：jieba 0.42.1 + qhchina 0.2.5
+  </div>
+</main>
+</body>
+</html>
