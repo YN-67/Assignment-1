@@ -8,12 +8,18 @@ Reads collocates_老残.csv and writes collocates_老残.html with:
 """
 import csv
 import html
-import math
+import sys
 from datetime import date
 
-CSV_PATH = "collocates_老残.csv"
-HTML_PATH = "collocates_老残.html"
-TARGET = "老残"
+# Defaults: horizon-5 results. Can be overridden on the command line:
+#   python make_html_report.py [csv_path] [html_path] [target]
+CSV_PATH = sys.argv[1] if len(sys.argv) > 1 else "collocates_老残.csv"
+HTML_PATH = sys.argv[2] if len(sys.argv) > 2 else "collocates_老残.html"
+TARGET = sys.argv[3] if len(sys.argv) > 3 else "老残"
+HORIZON = sys.argv[4] if len(sys.argv) > 4 else "5"
+# Method label: "window ±N words" or "sentence method" (when horizon is not numeric).
+METHOD_LABEL = (f"window method · horizon ±{HORIZON} words"
+                if HORIZON.isdigit() else "sentence method (whole sentence as context unit)")
 TOP_N = 25
 
 
@@ -129,7 +135,7 @@ def main() -> None:
 <main>
   <header>
     <h1>Collocates of <span class="target">{TARGET}</span> in 《老残游记》</h1>
-    <div class="subtitle">Statistically significant collocates · window method · horizon ±5 words · Fisher's exact test, p &lt; 0.05</div>
+    <div class="subtitle">Statistically significant collocates · {METHOD_LABEL} · Fisher's exact test, p &lt; 0.05</div>
   </header>
 
   <div class="cards">
@@ -165,7 +171,7 @@ def main() -> None:
 {table_rows}
       </tbody>
     </table>
-    <div class="note">Obs. = observed co-occurrences within ±5 words of {TARGET}; Expected = count under independence; Obs/Exp &gt; 1 indicates attraction. Click column headers to sort.</div>
+    <div class="note">Obs. = observed co-occurrences ({'within ±' + HORIZON + ' words of ' if HORIZON.isdigit() else 'sentences containing both ' + ' and '} {TARGET}); Expected = count under independence; Obs/Exp &gt; 1 indicates attraction. Click column headers to sort.</div>
   </section>
 
   <footer>Generated {date.today().isoformat()} · jieba segmentation · qhchina find_collocates · 《老残游记》 (刘鹗)</footer>
